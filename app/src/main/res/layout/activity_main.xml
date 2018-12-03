@@ -1,74 +1,33 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
     <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Hello World!"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tile1" />
 
     <Button
         android:id="@+id/tile1"
         android:layout_width="190dp"
-        android:layout_height="175dp"
+        android:layout_height="0dp"
+        android:layout_marginBottom="318dp"
         android:background="@android:color/holo_green_light"
         android:onClick="sendMessage"
         android:text="Payot 10%"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="0dp" />
-
-    <Button
-        android:id="@+id/tile2"
-        android:layout_width="204dp"
-        android:layout_height="155dp"
-        android:background="@android:color/holo_blue_bright"
-        android:text="CFF"
-        tools:layout_editor_absoluteX="190dp"
-        tools:layout_editor_absoluteY="0dp" />
-
-    <Button
-        android:id="@+id/tile3"
-        android:layout_width="189dp"
-        android:layout_height="124dp"
-        android:background="@android:color/holo_orange_light"
-        android:text="Pathé Lausanne"
-        tools:layout_editor_absoluteX="0dp"
-        tools:layout_editor_absoluteY="175dp" />
-
-    <Button
-        android:id="@+id/tile6"
-        android:layout_width="190dp"
-        android:layout_height="189dp"
-        android:background="@android:color/holo_red_dark"
-        android:text="Visilab -30%"
-        tools:layout_editor_absoluteX="191dp"
-        tools:layout_editor_absoluteY="325dp" />
-
-    <Button
-        android:id="@+id/tile4"
-        android:layout_width="203dp"
-        android:layout_height="174dp"
-        android:background="@android:color/holo_purple"
-        android:text="Qoqa.ch"
-        tools:layout_editor_absoluteX="191dp"
-        tools:layout_editor_absoluteY="155dp" />
-
-    <Button
-        android:id="@+id/tile5"
-        android:layout_width="191dp"
-        android:layout_height="211dp"
-        android:background="@android:color/holo_blue_dark"
-        android:text="Suite Office gratuite pour la HES-SO"
-        tools:layout_editor_absoluteX="-1dp"
-        tools:layout_editor_absoluteY="299dp" />
+        app:layout_constraintBottom_toTopOf="@+id/textView2"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    app:layout_constraintStart_toStartOf="parent"
 
 </android.support.constraint.ConstraintLayout>
