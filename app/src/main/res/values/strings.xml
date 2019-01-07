@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">GoodDealTiles</string>
+    <string name="payot_10">Payot 10%</string>
+    <string name="cff_railplus">CFF Railplus</string>
+    <string name="eni">eni</string>
+    <string name="digitec">digitec</string>
+    <string name="mobility">Mobility</string>
+    <string name="path">Pathé</string>
 </resources>

@@ -29,6 +29,22 @@ public class MainActivity extends AppCompatActivity {
                 message = "Billet à l'étranger 50% avec CFF Railplus";
                 Log.d("GoodDealTiles","tile2");
                 break;
+            case (R.id.tile3):
+                message = "Livre en lecture libre sur ENI";
+                Log.d("GoodDealTiles","tile3");
+                break;
+            case (R.id.tile4):
+                message = "Bon plan journalier sur digitec.ch et livraison le lendemain si commandé avant 12h";
+                Log.d("GoodDealTiles","tile4");
+                break;
+            case (R.id.tile5):
+                message = "Cinéma Pathé au Flon à Lausanne : réduction de 3CHF";
+                Log.d("GoodDealTiles","tile5");
+                break;
+            case (R.id.tile6):
+                message = "Abonnement Mobility pour 100CHF par année";
+                Log.d("GoodDealTiles","tile4");
+                break;
         }
         intent.putExtra(EXTRA_MESSAGE, message);
         startActivity(intent);
