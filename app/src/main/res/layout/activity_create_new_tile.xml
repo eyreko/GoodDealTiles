@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".CreateNewTile">
+
+    <ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/ScrollView01"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scrollbars="vertical">
+        <LinearLayout
+            android:layout_width="fill_parent"
+            android:orientation="vertical"
+            android:layout_height="fill_parent">
+
+            <!--Put form controls here-->
+            <TextView
+                android:id="@+id/TextViewTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/newdeal"
+                android:textSize="10pt"
+                android:textStyle="bold"></TextView>
+
+            <EditText
+                android:id="@+id/EditTextName"
+                android:layout_height="wrap_content"
+                android:hint="Nom du deal (court)"
+                android:inputType="text"
+                android:layout_width="fill_parent">
+            </EditText>
+
+            <EditText
+                android:id="@+id/EditTextTitle"
+                android:layout_height="wrap_content"
+                android:hint="Titre du deal (long)"
+                android:inputType="text"
+                android:layout_width="fill_parent">
+            </EditText>
+
+            <EditText
+                android:id="@+id/EditTextDescription"
+                android:layout_width="398dp"
+                android:layout_height="wrap_content"
+                android:hint="Description du deal"
+                android:inputType="textMultiLine"
+                android:lines="5"></EditText>
+
+            <Button
+                android:id="@+id/ButtonSendDeal"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
+                android:onClick="createTile"
+                android:text="Enregistrer"></Button>
+
+        </LinearLayout>
+    </ScrollView>
+
+</android.support.constraint.ConstraintLayout>
