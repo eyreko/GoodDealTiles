@@ -59,6 +59,17 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         db.close(); // Closing database connection
     }
 
+    public String getDealDescriptionByTitle(String title){
+        SQLiteDatabase db = this.getReadableDatabase();
+        String query = "SELECT * FROM " + TABLE_DEALS + " WHERE " + COL_TITLE + " LIKE '"+ title +"'";
+        Log.d("selectDescription", query);
+        Cursor c = db.rawQuery(query, null);
+        c.moveToFirst();
+        Log.d("selectDescription", String.valueOf(c.getCount()));
+        Log.d("selectDescription", c.getString(c.getColumnIndex(COL_DESCRIPTION)));
+        return c.getString(c.getColumnIndex(COL_DESCRIPTION));
+    }
+
     public Cursor showAllDeals() {
         SQLiteDatabase db = this.getReadableDatabase();
         String query = "Select * from " + TABLE_DEALS;

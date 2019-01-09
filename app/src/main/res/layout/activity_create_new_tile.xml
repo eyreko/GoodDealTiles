@@ -23,7 +23,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:text="@string/newdeal"
-                android:textSize="10pt"></TextView>
+                android:textSize="10pt"
+                android:textStyle="bold"></TextView>
 
             <EditText
                 android:id="@+id/EditTextName"
@@ -53,6 +54,7 @@
                 android:id="@+id/ButtonSendDeal"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
+                android:background="@color/colorPrimary"
                 android:onClick="createTile"
                 android:text="Enregistrer"></Button>
 
