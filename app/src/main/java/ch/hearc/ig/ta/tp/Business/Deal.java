@@ -4,18 +4,16 @@ public class Deal {
     int id;
     String name;
     String titre;
-    String categorie;
+    String description;
 
-    public Deal(String name, String titre, String categorie) {
+    public Deal(String name, String titre, String description) {
         this.id = id;
         this.name = name;
         this.titre = titre;
-        this.categorie = categorie;
+        this.description = description;
     }
 
-    public Deal() {
-
-    }
+    public Deal() {}
 
     public int getID(){ return id; }
 
@@ -35,12 +33,12 @@ public class Deal {
         this.titre = titre;
     }
 
-    public String getCategorie(){
-        return this.categorie;
+    public String getDescription(){
+        return this.description;
     }
 
-    public void setCategorie(String categore){
-        this.categorie = categore;
+    public void setDescription(String description){
+        this.description = description;
     }
 
 }

@@ -1,5 +1,6 @@
 package ch.hearc.ig.ta.tp.gooddealtiles;
 
+import android.app.Activity;
 import android.content.Intent;
 import android.database.Cursor;
 import android.support.v7.app.AppCompatActivity;
@@ -21,7 +22,7 @@ import ch.hearc.ig.ta.tp.persistance.MySQLiteHelper;
 
 public class MainActivity extends AppCompatActivity {
 
-    public static final String EXTRA_MESSAGE = "Payot 10%";
+    public static final String KEY_TILE = "KeyTile";
 
     MySQLiteHelper db;
     ArrayList<String> listDeals;
@@ -36,35 +37,64 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         db = new MySQLiteHelper(this);
+
+        Boolean isClean = db.deleteTitles();
+        if(isClean) {
+            Log.d("cleanDeals", "Deals has been deleted");
+        } else {
+            Log.d("cleanDeals", "No clean table");
+        }
         
-        db.addDeal(new Deal("Payot","Payot -10%","test"));
+        db.addDeal(new Deal("Payot","Payot -10%","Réduction de 10% sur les livres avec présentation de la carte étudiant"));
         db.addDeal(new Deal("Fnac","Fnac fidélité","test1"));
-        db.addDeal(new Deal("Fnac","CFF Railplus","test1"));
-        db.addDeal(new Deal("Fnac","digitec.ch","test1"));
-        db.addDeal(new Deal("Fnac","Cinéma Pathé","test1"));
-        db.addDeal(new Deal("Fnac","Abonnement Mobility","test1"));
+        db.addDeal(new Deal("CFF","CFF Railplus","test1"));
+        db.addDeal(new Deal("Digitec","digitec.ch","test1"));
+        db.addDeal(new Deal("Pathé","Cinéma Pathé","test1"));
+        db.addDeal(new Deal("Mobility","Abonnement Mobility","test1"));
 
         listDeals = new ArrayList<>();
 
         userList = findViewById(R.id.deals_list);
         viewData();
 
-        userList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        /*userList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
                 String text = userList.getItemAtPosition(i).toString();
                 Toast.makeText(MainActivity.this," "+text,Toast.LENGTH_SHORT).show();
             }
-        });
+        });*/
 
 
     }
 
     public void sendMessage(View view) {
         Intent intent = new Intent(this, DisplayTileActivity.class);
-        String message = "";
-        intent.putExtra(EXTRA_MESSAGE, message);
+        String message = "description du deal...";
+        intent.putExtra(KEY_TILE, message);
         startActivity(intent);
+    }
+
+    public void displayCreateTile(View view){
+        Intent intent = new Intent(this, CreateNewTile.class);
+        startActivityForResult(intent, 1);
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) { //createTile result
+
+        if (requestCode == 1) {
+            if(resultCode == Activity.RESULT_OK){
+                String name = data.getStringExtra("name");
+                String title = data.getStringExtra("title");
+                String description = data.getStringExtra("description");
+
+                Deal newDeal = new Deal(name, title, description);
+
+                db.addDeal(newDeal);
+                viewData();
+            }
+        }
     }
 
     private void viewData() {

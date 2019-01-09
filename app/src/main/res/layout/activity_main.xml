@@ -31,9 +31,9 @@
                 android:layout_alignParentLeft="true"
                 android:layout_marginLeft="23dp"
                 android:layout_marginTop="424dp"
-                android:onClick="sendMessage"
+                android:onClick="displayCreateTile"
                 android:stateListAnimator="@null"
-                android:text="New deal"
+                android:text="Ajouter un deal"
                 android:textSize="15dp"
                 tools:layout_editor_absoluteX="0dp"
                 tools:layout_editor_absoluteY="461dp" />
@@ -46,7 +46,7 @@
                 android:layout_marginStart="18dp"
                 android:layout_marginLeft="18dp"
                 android:layout_marginTop="5dp"
-                android:text="Deals of the day"
+                android:text="Deals for student"
                 android:textSize="30dp" />
 
 

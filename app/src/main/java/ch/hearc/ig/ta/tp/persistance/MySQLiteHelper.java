@@ -12,18 +12,18 @@ import android.util.Log;
 import ch.hearc.ig.ta.tp.Business.Deal;
 
 public class MySQLiteHelper extends SQLiteOpenHelper {
-    private static final int DATABASE_VERSION = 1;
+    private static final int DATABASE_VERSION = 2;
     private static final String DATABASE_NAME = "dealsManager";
 
     private static final String TABLE_DEALS = "DEALS";
     private static final String COL_ID = "ID";
     private static final String COL_NAME = "NAME";
     private static final String COL_TITLE = "TITLE";
-    private static final String COL_CATEGORY = "CATEGORY";
+    private static final String COL_DESCRIPTION = "DESCRIPTION";
 
     private static final String CREATE_BDD = "CREATE TABLE " + TABLE_DEALS + " ("
             + COL_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " + COL_NAME + " TEXT NOT NULL, "
-            + COL_TITLE + " TEXT NOT NULL," + COL_CATEGORY + " TEXT NOT NULL);";
+            + COL_TITLE + " TEXT NOT NULL," + COL_DESCRIPTION + " TEXT NOT NULL);";
 
     public MySQLiteHelper(Context context) {
         super(context, DATABASE_NAME, null, DATABASE_VERSION);
@@ -50,7 +50,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         ContentValues values = new ContentValues();
         values.put(COL_NAME, deal.getName()); // deal Name
         values.put(COL_TITLE, deal.getTitre()); // deal titre
-        values.put(COL_CATEGORY, deal.getCategorie()); // deal categorie
+        values.put(COL_DESCRIPTION, deal.getDescription());
 
         // Inserting Row
         //2nd argument is String containing nullColumnHack
@@ -65,6 +65,12 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
         Cursor cursor = db.rawQuery(query,null);
 
         return cursor;
+    }
+
+    public boolean deleteTitles()
+    {
+        SQLiteDatabase db = this.getWritableDatabase();
+        return db.delete(TABLE_DEALS, null, null) > 0;
     }
 
     // code to get all deals in a list view
@@ -82,7 +88,7 @@ public class MySQLiteHelper extends SQLiteOpenHelper {
                 Deal deal = new Deal();
                 deal.setName(cursor.getString(1));
                 deal.setTitre(cursor.getString(2));
-                deal.setCategorie(cursor.getString(3));
+                deal.setDescription(cursor.getString(3));
 
                 // Adding deal to list
                 dealList.add(deal);

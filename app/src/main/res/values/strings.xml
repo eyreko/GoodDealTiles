@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">GoodDealTiles</string>
+    <string name="newdeal">Nouveau deal</string>
 </resources>
